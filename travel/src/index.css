@@ -1,0 +1,30 @@
+header, footer {
+  background: #0d6efd;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+header .nav-links {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 1rem;
+}
+
+header .nav-links a, .logout-btn {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.logout-btn {
+  background: transparent;
+  border: 1px solid white;
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+}
+
+footer {
+  margin-top: 2rem;
+}

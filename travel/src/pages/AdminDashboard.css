@@ -1,0 +1,76 @@
+/* ------- CONTAINER ------- */
+.admin-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ------- PAGE TITLE ------- */
+.admin-container h1 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 40px;
+}
+
+/* ------- BOOKINGS GRID ------- */
+.bookings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* ------- BOOKING CARD ------- */
+.booking-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  transition: 0.3s;
+}
+
+.booking-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.booking-card h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #ff5733;
+}
+
+.booking-card p {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+/* ------- DELETE BUTTON ------- */
+.delete-btn {
+  margin-top: 10px;
+  background: #ff4c4c;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.delete-btn:hover {
+  background: #ff2e2e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 76, 76, 0.3);
+}
+
+/* ------- RESPONSIVE ------- */
+@media (max-width: 768px) {
+  .bookings-grid {
+    grid-template-columns: 1fr;
+  }
+}

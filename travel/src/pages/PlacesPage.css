@@ -1,0 +1,119 @@
+/* ===== PAGE CONTAINER ===== */
+.packages-container {
+  max-width: 1300px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.page-title {
+  font-size: 38px;
+  font-weight: 700;
+  color: #1b1b1b;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* ===== GRID ===== */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+/* ===== CARD (Glassmorphism) ===== */
+.package-card {
+  width: 320px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  opacity: 0;
+  animation: slideUp 0.6s ease forwards;
+}
+
+.package-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
+}
+
+/* ===== IMAGE ===== */
+.package-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.3s ease;
+}
+
+.package-card:hover .package-image {
+  transform: scale(1.15);
+  filter: brightness(1.08);
+}
+
+/* ===== CONTENT ===== */
+.package-content {
+  padding: 20px 15px;
+  text-align: center;
+}
+
+.package-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.package-card:hover .package-title {
+  color: #2255ff;
+}
+
+/* ===== VIEW DETAILS BUTTON (Optional) ===== */
+.view-details-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 18px;
+  background: #2255ff;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.35s ease;
+}
+
+.package-card:hover .view-details-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .package-card {
+    width: 90%;
+  }
+  .package-image {
+    height: 200px;
+  }
+}

@@ -1,0 +1,138 @@
+
+
+/* Packages Container */
+.packages-container {
+  max-width: 1300px;
+  margin: auto;
+  padding: 30px 20px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #0a3d62;
+}
+
+/* Packages Grid */
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+/* Individual Package Card */
+.package-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.package-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Package Image */
+.package-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Package Content */
+.package-content {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Package Title & Description */
+.package-title {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #007bff;
+}
+
+.package-desc {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+/* Hotel Info Box */
+.hotel-box {
+  background: #f1f1f1;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.hotel-box p {
+  margin: 5px 0;
+}
+
+.map-btn {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 5px 10px;
+  background-color: #0a3d62;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.map-btn:hover {
+  background-color: #007bff;
+}
+
+/* Price Box */
+.price-box {
+  margin-bottom: 10px;
+}
+
+.price-text {
+  font-weight: 700;
+  color: #ff4d4d;
+}
+
+/* Highlights */
+.highlights-box {
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Book Now Button */
+.book-btn {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease, opacity 0.3s ease;
+}
+
+.book-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Disable Book Now for Admin */
+.admin .book-btn {
+  display: none; /* Hide button completely */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .packages-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,84 @@
+/* Container for both login and signup */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #6dd5ed, #2193b0);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+}
+
+/* Card for login/signup form */
+.auth-card {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Form heading */
+.auth-card h2 {
+  margin-bottom: 30px;
+  color: #0a3d62;
+}
+
+/* Input fields */
+.auth-card input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.auth-card input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Submit button */
+.auth-btn {
+  width: 100%;
+  padding: 12px;
+  background: #007bff;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.auth-btn:hover {
+  background: #0056b3;
+}
+
+/* Footer text */
+.auth-card p {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+.auth-card p a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-card p a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .auth-card {
+    padding: 30px 20px;
+  }
+}

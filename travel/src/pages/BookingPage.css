@@ -1,0 +1,269 @@
+/* ---------- GLOBAL WRAPPER ---------- */
+.booking-wrapper {
+  max-width: 950px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: "Poppins", "Segoe UI", Tahoma, sans-serif;
+  color: #1E1E1E;
+  background: #fdf8f0;
+}
+
+/* ---------- PREMIUM BANNER ---------- */
+.banner {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  margin-bottom: 30px;
+  transition: transform 0.5s ease;
+}
+
+.banner img.selected-place {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.banner img.selected-place:hover {
+  transform: scale(1.08);
+}
+
+.banner-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 25px 30px;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  color: #FFD700;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.banner-overlay h1 {
+  font-size: 32px;
+  font-weight: 800;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+  margin: 0;
+}
+
+.banner-overlay p {
+  font-size: 16px;
+  margin-top: 6px;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+  color: #fff;
+}
+
+/* ---------- BOOKING CARD ---------- */
+.booking-card {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(15px);
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+  border: 1px solid #D4AF37;
+  transition: all 0.3s ease-in-out;
+}
+
+/* ---------- COUPON ---------- */
+.coupon-top-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding: 12px 16px;
+  background: #fff8dc;
+  border-radius: 14px;
+  border: 1px solid #D4AF37;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #1E1E1E;
+}
+
+.coupon-box {
+  background: #D4AF37;
+  color: #1E1E1E;
+  padding: 6px 16px;
+  border-radius: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+/* ---------- FORM SECTIONS ---------- */
+.form-section {
+  margin-bottom: 25px;
+}
+
+.form-section h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-section input[type="text"],
+.form-section input[type="number"],
+.form-section input[type="date"] {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid #D4AF37;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: #fffaf0;
+  color: #1E1E1E;
+}
+
+.form-section input:focus {
+  border-color: #FFD700;
+  box-shadow: 0 0 12px rgba(255,215,0,0.5);
+  transform: scale(1.02);
+}
+
+/* ---------- ROOM & FOOD OPTIONS ---------- */
+.sub-section {
+  margin-bottom: 30px;
+}
+
+.room-options,
+.food-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 19px;
+}
+
+.radio-card {
+  border: 1px solid #D4AF37;
+  border-radius: 18px;
+  padding: 16px 20px;
+  flex: 1 1 160px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fffaf0;
+}
+
+.radio-card:hover {
+  transform: translateY(-5px) scale(1.04);
+  box-shadow: 0 12px 25px rgba(212,175,55,0.3);
+}
+
+.radio-card.active {
+  border-color: #FFD700;
+  background: rgba(255,215,0,0.15);
+  transform: translateY(-7px) scale(1.06);
+  box-shadow: 0 14px 30px rgba(212,175,55,0.5);
+}
+
+.radio-card input {
+  display: none;
+}
+
+.radio-content {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ---------- COUPON APPLY ---------- */
+.apply-btn {
+  padding: 10px 20px;
+  margin-left: 10px;
+  border: none;
+  background: #D4AF37;
+  color: #1E1E1E;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.apply-btn:hover {
+  background: #FFD700;
+  color: #000;
+}
+
+.discount-msg {
+  color: #228B22;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.error-msg {
+  color: #B22222;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+/* ---------- TERMS ---------- */
+.terms-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.terms-checkbox input {
+  width: 20px;
+  height: 20px;
+}
+
+/* ---------- SUMMARY & CTA ---------- */
+.checkout-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.checkout-row h3 {
+  color: #1E1E1E;
+  font-weight: 700;
+}
+
+.confirm-btn {
+  background: #FFD700;
+  color: #1E1E1E;
+  border: none;
+  padding: 16px 26px;
+  border-radius: 18px;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(212,175,55,0.5);
+}
+
+.confirm-btn:hover {
+  background: #D4AF37;
+  box-shadow: 0 12px 30px rgba(212,175,55,0.7);
+}
+
+.confirm-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ---------- MUTED TEXT ---------- */
+.muted {
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 650px) {
+  .room-options,
+  .food-options {
+    flex-direction: column;
+  }
+}
