@@ -1,132 +1,165 @@
-/* =========================
-   GLOBAL
-========================= */
+/* ---------- GLOBAL WRAPPER ---------- */
 .booking-wrapper {
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  min-height: 100vh;
-  padding-bottom: 60px;
-  font-family: "Poppins", sans-serif;
-  color: #222;
+  max-width: 950px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: "Poppins", "Segoe UI", Tahoma, sans-serif;
+  color: #1E1E1E;
+  background: #fdf8f0;
 }
 
-/* =========================
-   BANNER
-========================= */
+/* ---------- PREMIUM BANNER ---------- */
 .banner {
   position: relative;
-  height: 280px;
+  width: 100%;
+  height: 300px;
+  border-radius: 20px;
   overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  margin-bottom: 30px;
+  transition: transform 0.5s ease;
 }
 
-.selected-place {
+.banner img.selected-place {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(70%);
+  transition: transform 0.5s ease;
+}
+
+.banner img.selected-place:hover {
+  transform: scale(1.08);
 }
 
 .banner-overlay {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.65));
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 25px 30px;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  color: #FFD700;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 30px;
-  color: #fff;
 }
 
 .banner-overlay h1 {
   font-size: 32px;
-  font-weight: 600;
+  font-weight: 800;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+  margin: 0;
 }
 
 .banner-overlay p {
-  font-size: 15px;
-  opacity: 0.9;
+  font-size: 16px;
+  margin-top: 6px;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+  color: #fff;
 }
 
-/* =========================
-   CARD
-========================= */
+/* ---------- BOOKING CARD ---------- */
 .booking-card {
-  background: rgba(255,255,255,0.96);
-  max-width: 900px;
-  margin: -90px auto 0;
-  padding: 32px;
-  border-radius: 18px;
-  box-shadow: 0 20px 45px rgba(0,0,0,0.25);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(15px);
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+  border: 1px solid #D4AF37;
+  transition: all 0.3s ease-in-out;
 }
 
-/* =========================
-   FORM SECTIONS
-========================= */
+/* ---------- COUPON ---------- */
+.coupon-top-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding: 12px 16px;
+  background: #fff8dc;
+  border-radius: 14px;
+  border: 1px solid #D4AF37;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #1E1E1E;
+}
+
+.coupon-box {
+  background: #D4AF37;
+  color: #1E1E1E;
+  padding: 6px 16px;
+  border-radius: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+/* ---------- FORM SECTIONS ---------- */
 .form-section {
-  margin-bottom: 22px;
+  margin-bottom: 25px;
 }
 
 .form-section h4 {
-  margin-bottom: 8px;
-  font-size: 15px;
-  font-weight: 500;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
   color: #333;
 }
 
-.form-section input {
+.form-section input[type="text"],
+.form-section input[type="number"],
+.form-section input[type="date"] {
   width: 100%;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  font-size: 14px;
-  transition: all 0.25s ease;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid #D4AF37;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: #fffaf0;
+  color: #1E1E1E;
 }
 
 .form-section input:focus {
-  outline: none;
-  border-color: #4f46e5;
-  box-shadow: 0 0 0 3px rgba(79,70,229,0.15);
+  border-color: #FFD700;
+  box-shadow: 0 0 12px rgba(255,215,0,0.5);
+  transform: scale(1.02);
 }
 
-/* =========================
-   SUB SECTIONS
-========================= */
+/* ---------- ROOM & FOOD OPTIONS ---------- */
 .sub-section {
-  margin: 26px 0;
+  margin-bottom: 30px;
 }
 
-.sub-section h4 {
-  margin-bottom: 12px;
-  font-size: 15px;
-  font-weight: 600;
-}
-
-/* =========================
-   ROOM OPTIONS
-========================= */
-.room-options {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 15px;
+.room-options,
+.food-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 19px;
 }
 
 .radio-card {
-  border: 2px solid #e5e7eb;
-  border-radius: 14px;
-  padding: 14px;
+  border: 1px solid #D4AF37;
+  border-radius: 18px;
+  padding: 16px 20px;
+  flex: 1 1 160px;
   cursor: pointer;
-  transition: all 0.25s ease;
-  background: #fafafa;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fffaf0;
 }
 
 .radio-card:hover {
-  border-color: #6366f1;
-  transform: translateY(-3px);
+  transform: translateY(-5px) scale(1.04);
+  box-shadow: 0 12px 25px rgba(212,175,55,0.3);
 }
 
 .radio-card.active {
-  border-color: #4f46e5;
-  background: #eef2ff;
-  box-shadow: 0 10px 25px rgba(79,70,229,0.25);
+  border-color: #FFD700;
+  background: rgba(255,215,0,0.15);
+  transform: translateY(-7px) scale(1.06);
+  box-shadow: 0 14px 30px rgba(212,175,55,0.5);
 }
 
 .radio-card input {
@@ -134,159 +167,103 @@
 }
 
 .radio-content {
-  font-weight: 500;
+  text-align: center;
   font-size: 14px;
-}
-
-/* =========================
-   FOOD OPTIONS
-========================= */
-.sub-section .radio-card {
-  margin-bottom: 10px;
-}
-
-/* =========================
-   COUPON
-========================= */
-.sub-section input {
-  width: calc(100% - 90px);
-  display: inline-block;
-}
-
-.apply-btn {
-  padding: 12px 18px;
-  border-radius: 10px;
-  border: none;
-  background: linear-gradient(135deg, #22c55e, #16a34a);
-  color: white;
   font-weight: 500;
-  margin-left: 8px;
+}
+
+/* ---------- COUPON APPLY ---------- */
+.apply-btn {
+  padding: 10px 20px;
+  margin-left: 10px;
+  border: none;
+  background: #D4AF37;
+  color: #1E1E1E;
+  border-radius: 14px;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  font-weight: 700;
+  transition: all 0.3s ease;
 }
 
 .apply-btn:hover {
-  transform: scale(1.05);
+  background: #FFD700;
+  color: #000;
 }
 
 .discount-msg {
+  color: #228B22;
   margin-top: 8px;
-  color: #16a34a;
   font-weight: 600;
 }
 
-/* =========================
-   PAYMENT
-========================= */
-.sub-section label {
-  display: inline-flex;
-  align-items: center;
-  margin-right: 20px;
-  font-weight: 500;
-  cursor: pointer;
+.error-msg {
+  color: #B22222;
+  margin-top: 8px;
+  font-weight: 600;
 }
 
-.sub-section input[type="radio"] {
-  margin-right: 6px;
-}
-
-.sub-section input[type="text"] {
-  margin-top: 12px;
-}
-
-/* =========================
-   TERMS
-========================= */
+/* ---------- TERMS ---------- */
 .terms-checkbox {
   display: flex;
   align-items: center;
-  margin: 28px 0;
+  gap: 10px;
+  margin-bottom: 30px;
 }
 
-.terms-checkbox label {
-  margin-left: 8px;
-  font-size: 14px;
+.terms-checkbox input {
+  width: 20px;
+  height: 20px;
 }
 
-/* =========================
-   SUMMARY
-========================= */
+/* ---------- SUMMARY & CTA ---------- */
 .checkout-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 32px;
-  padding-top: 20px;
-  border-top: 1px solid #e5e7eb;
+  flex-wrap: wrap;
+  margin-top: 30px;
 }
 
 .checkout-row h3 {
-  font-size: 22px;
-  font-weight: 600;
-  color: #111827;
+  color: #1E1E1E;
+  font-weight: 700;
 }
 
-/* =========================
-   PAY BUTTON
-========================= */
 .confirm-btn {
-  padding: 14px 36px;
-  font-size: 15px;
-  font-weight: 600;
-  color: white;
-  border-radius: 999px;
+  background: #FFD700;
+  color: #1E1E1E;
   border: none;
-  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  padding: 16px 26px;
+  border-radius: 18px;
   cursor: pointer;
-  transition: all 0.25s ease;
+  font-size: 17px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(212,175,55,0.5);
 }
 
 .confirm-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(79,70,229,0.35);
+  background: #D4AF37;
+  box-shadow: 0 12px 30px rgba(212,175,55,0.7);
 }
 
 .confirm-btn:disabled {
-  background: #9ca3af;
+  background: #ccc;
   cursor: not-allowed;
   box-shadow: none;
-  transform: none;
 }
 
-/* =========================
-   ERROR
-========================= */
-.error-msg {
-  margin-top: 16px;
-  color: #dc2626;
-  font-weight: 500;
-}
-
-/* =========================
-   TEXT HELPERS
-========================= */
+/* ---------- MUTED TEXT ---------- */
 .muted {
-  font-size: 13px;
-  color: #6b7280;
+  font-size: 12px;
+  color: #666;
+  margin-top: 4px;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
-@media (max-width: 768px) {
-  .booking-card {
-    margin: -60px 14px 0;
-    padding: 22px;
-  }
-
-  .checkout-row {
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 650px) {
+  .room-options,
+  .food-options {
     flex-direction: column;
-    gap: 15px;
-    align-items: flex-start;
-  }
-
-  .confirm-btn {
-    width: 100%;
-    text-align: center;
   }
 }
