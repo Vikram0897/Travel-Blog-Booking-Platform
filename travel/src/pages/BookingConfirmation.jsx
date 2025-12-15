@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./BookingConfirmation.css";
 
 export default function BookingConfirmation() {
   const navigate = useNavigate();
   const location = useLocation();
+  const [darkMode, setDarkMode] = useState(false);
 
   const booking =
     location.state?.booking ||
@@ -12,9 +13,19 @@ export default function BookingConfirmation() {
 
   if (!booking) return <h2>No booking data found.</h2>;
 
+  const handlePrint = () => {
+    window.print();
+  };
+
   return (
-    <div className="confirmation-wrapper">
+    <div className={`confirmation-wrapper ${darkMode ? "dark" : ""}`}>
       <div className="booking-card">
+        <div className="top-actions">
+          <button className="toggle-btn" onClick={() => setDarkMode(!darkMode)}>
+            {darkMode ? "☀ Light Mode" : "🌙 Dark Mode"}
+          </button>
+        </div>
+
         <h3>Booking Confirmation ✅</h3>
 
         <p>🏨 <strong>Hotel:</strong> {booking.hotelName}</p>
@@ -32,9 +43,15 @@ export default function BookingConfirmation() {
         <p><strong>Total Paid:</strong> ₹{booking.totalPrice}</p>
         <p><strong>Room Number:</strong> {booking.roomNumber}</p>
 
-        <button className="back-btn" onClick={() => navigate("/")}>
-          Back to Home
-        </button>
+        <div className="action-buttons">
+          <button className="print-btn" onClick={handlePrint}>
+            🖨️ Print / Download
+          </button>
+
+          <button className="back-btn" onClick={() => navigate("/")}>
+            Back to Home
+          </button>
+        </div>
       </div>
     </div>
   );

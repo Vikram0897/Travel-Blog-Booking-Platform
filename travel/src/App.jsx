@@ -29,8 +29,29 @@ export default function App() {
       <Navbar />
 
       <Routes>
+        {/* Default route → redirect based on login */}
+        <Route
+          path="/"
+          element={
+            currentUser
+              ? currentUser.role === "admin"
+                ? <Navigate to="/admin" />
+                : <Navigate to="/home" />
+              : <Navigate to="/login" />
+          }
+        />
+
+        {/* Home page route (user) */}
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoute role="user">
+              <HomePage />
+            </ProtectedRoute>
+          }
+        />
+
         {/* Public Routes */}
-        <Route path="/" element={currentUser ? <HomePage /> : <Navigate to="/login" />} />
         <Route path="/places" element={<PlacesPage />} />
         <Route path="/packages" element={<PackagesPage />} />
         <Route path="/about" element={<AboutPage />} />

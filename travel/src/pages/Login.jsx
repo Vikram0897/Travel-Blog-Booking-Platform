@@ -7,12 +7,15 @@ export default function Login() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
-  // Redirect if already logged in
+  // ✅ Redirect already logged-in user automatically
   useEffect(() => {
     const currentUser = JSON.parse(localStorage.getItem("user"));
     if (currentUser) {
-      if (currentUser.role === "admin") navigate("/admin");
-      else navigate("/"); // user goes to HomePage
+      if (currentUser.role === "admin") {
+        navigate("/admin", { replace: true });
+      } else {
+        navigate("/home", { replace: true });
+      }
     }
   }, [navigate]);
 
@@ -21,23 +24,24 @@ export default function Login() {
 
     const users = JSON.parse(localStorage.getItem("users") || "[]");
 
-    // Check admin
+    // ✅ Admin login
     if (name === "admin" && password === "admin123") {
       const adminUser = { name: "admin", role: "admin" };
       localStorage.setItem("user", JSON.stringify(adminUser));
-      navigate("/");
+      navigate("/admin", { replace: true }); // Redirect to admin dashboard
       return;
     }
 
-    // Check normal users
+    // ✅ Normal user login
     const user = users.find((u) => u.name === name && u.password === password);
+
     if (!user) {
       alert("Invalid name or password");
       return;
     }
 
-    localStorage.setItem("user", JSON.stringify(user));
-    navigate("/"); // user goes to HomePage first
+    localStorage.setItem("user", JSON.stringify({ ...user, role: "user" }));
+    navigate("/home", { replace: true }); // Redirect to user homepage
   };
 
   return (
@@ -52,6 +56,7 @@ export default function Login() {
           onChange={(e) => setName(e.target.value)}
           required
         />
+
         <input
           type="password"
           placeholder="Password"
@@ -60,10 +65,12 @@ export default function Login() {
           required
         />
 
-        <button type="submit" className="auth-btn">Login</button>
+        <button type="submit" className="auth-btn">
+          Login
+        </button>
 
         <p>
-          Don't have an account? <a href="/signup">Signup</a>
+          Don&apos;t have an account? <a href="/signup">Signup</a>
         </p>
       </form>
     </div>

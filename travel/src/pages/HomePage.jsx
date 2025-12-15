@@ -3,11 +3,13 @@ import "../pages/HomePage.css";
 
 export default function HomePage() {
   const [currentUser, setCurrentUser] = useState(null);
-
-  useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    setCurrentUser(user);
-  }, []);
+  
+useEffect(() => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (!user) {
+    navigate("/login");
+  }
+}, []);
 
   return (
     <div className="home-hero">
