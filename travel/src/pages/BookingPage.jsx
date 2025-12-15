@@ -135,8 +135,9 @@ export default function BookingPage() {
 
     const roomNo = Math.floor(Math.random() * 900) + 100;
 
-   const booking = {
+  const booking = {
   id: Date.now(),
+  hotelName: selectedPkg.hotelName || selectedPkg.title,
   packageName: selectedPkg.title,
   travelerName,
   travelers: numTravelers,
@@ -152,14 +153,11 @@ export default function BookingPage() {
   createdAt: new Date().toISOString(),
   paymentInfo: {
     method: paymentMethod,
-    upiId,
-    cardNumber,
-    cvv,
-    bank,
     amountPaid: totalPrice,
     paymentDate: new Date().toISOString(),
   },
 };
+
 
 
     const prev = JSON.parse(localStorage.getItem("bookings") || "[]");
