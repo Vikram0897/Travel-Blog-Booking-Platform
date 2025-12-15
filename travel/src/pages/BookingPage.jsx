@@ -135,31 +135,32 @@ export default function BookingPage() {
 
     const roomNo = Math.floor(Math.random() * 900) + 100;
 
-    const booking = {
-      id: Date.now(),
-      packageName: selectedPkg.title,
-      travelerName,
-      travelers: numTravelers,
-      days: numDays,
-      startDate,
-      endDate,
-      selectedRoom,
-      includeFood,
-      coupon: couponCode,
-      discountAmount,
-      totalPrice,
-      roomNumber: roomNo,
-      createdAt: new Date().toISOString(),
-      paymentInfo: {
-        method: paymentMethod,
-        upiId: upiId || null,
-        cardNumber: cardNumber || null,
-        cvv: cvv || null,
-        bank: bank || null,
-        amountPaid: totalPrice,
-        paymentDate: new Date().toISOString(),
-      },
-    };
+   const booking = {
+  id: Date.now(),
+  packageName: selectedPkg.title,
+  travelerName,
+  travelers: numTravelers,
+  days: numDays,
+  startDate,
+  endDate,
+  selectedRoom,
+  includeFood,
+  coupon: couponCode,
+  discountAmount,
+  totalPrice,
+  roomNumber: roomNo,
+  createdAt: new Date().toISOString(),
+  paymentInfo: {
+    method: paymentMethod,
+    upiId,
+    cardNumber,
+    cvv,
+    bank,
+    amountPaid: totalPrice,
+    paymentDate: new Date().toISOString(),
+  },
+};
+
 
     const prev = JSON.parse(localStorage.getItem("bookings") || "[]");
     prev.push(booking);
