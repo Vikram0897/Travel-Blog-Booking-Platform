@@ -142,7 +142,6 @@ export default function BookingPage() {
       travelers: numTravelers,
       days: numDays,
       startDate,
-      hotelName,
       endDate,
       selectedRoom,
       includeFood,
