@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../styles/login.css";
 
 export default function Login() {
@@ -7,41 +7,45 @@ export default function Login() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
-  // ✅ Redirect already logged-in user automatically
+  // 🔹 Auto redirect if already logged in
   useEffect(() => {
-    const currentUser = JSON.parse(localStorage.getItem("user"));
+    const currentUser = localStorage.getItem("user");
     if (currentUser) {
-      if (currentUser.role === "admin") {
-        navigate("/admin", { replace: true });
-      } else {
-        navigate("/home", { replace: true });
-      }
+      navigate("/home", { replace: true });
     }
   }, [navigate]);
 
   const handleLogin = (e) => {
     e.preventDefault();
 
-    const users = JSON.parse(localStorage.getItem("users") || "[]");
-
-    // ✅ Admin login
+    // 🔹 Admin login
     if (name === "admin" && password === "admin123") {
-      const adminUser = { name: "admin", role: "admin" };
-      localStorage.setItem("user", JSON.stringify(adminUser));
-      navigate("/admin", { replace: true }); // Redirect to admin dashboard
+      localStorage.setItem(
+        "user",
+        JSON.stringify({ name: "admin", role: "admin" })
+      );
+      navigate("/home");
       return;
     }
 
-    // ✅ Normal user login
-    const user = users.find((u) => u.name === name && u.password === password);
+    // 🔹 Normal user login
+    const users = JSON.parse(localStorage.getItem("users") || "[]");
+
+    const user = users.find(
+      (u) => u.name === name && u.password === password
+    );
 
     if (!user) {
       alert("Invalid name or password");
       return;
     }
 
-    localStorage.setItem("user", JSON.stringify({ ...user, role: "user" }));
-    navigate("/home", { replace: true }); // Redirect to user homepage
+    localStorage.setItem(
+      "user",
+      JSON.stringify({ ...user, role: "user" })
+    );
+
+    navigate("/home");
   };
 
   return (
@@ -70,7 +74,7 @@ export default function Login() {
         </button>
 
         <p>
-          Don&apos;t have an account? <a href="/signup">Signup</a>
+          Don&apos;t have an account? <Link to="/signup">Signup</Link>
         </p>
       </form>
     </div>

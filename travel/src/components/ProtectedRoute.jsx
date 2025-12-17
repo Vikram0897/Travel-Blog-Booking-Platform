@@ -1,27 +1,19 @@
-import React from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 
 export default function ProtectedRoute({ children, role }) {
+  const location = useLocation();
   const user = JSON.parse(localStorage.getItem("user"));
 
-  // Not logged in → go to login
+  // ❌ Not logged in → go to login
   if (!user) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
-  // Role check
-  if (role) {
-    if (role === "admin" && user.role !== "admin") {
-      // If page is admin-only but user is not admin → redirect to home
-      return <Navigate to="/home" replace />;
-    }
-
-    if (role === "user" && user.role !== "user") {
-      // If page is user-only but user is admin → redirect to admin dashboard
-      return <Navigate to="/admin" replace />;
-    }
+  // ❌ Role mismatch
+  if (role && user.role !== role) {
+    return <Navigate to="/home" replace />;
   }
 
-  // Authorized
+  // ✅ Access granted
   return children;
 }

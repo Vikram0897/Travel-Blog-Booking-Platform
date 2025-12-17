@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -22,30 +22,19 @@ import RefundPolicy from "./pages/RefundPolicy";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 export default function App() {
-  const currentUser = JSON.parse(localStorage.getItem("user"));
-
   return (
     <>
       <Navbar />
 
       <Routes>
-        {/* Default route → redirect based on login */}
-        <Route
-          path="/"
-          element={
-            currentUser
-              ? currentUser.role === "admin"
-                ? <Navigate to="/admin" />
-                : <Navigate to="/home" />
-              : <Navigate to="/login" />
-          }
-        />
+        {/* ✅ Always show login first */}
+        <Route path="/" element={<Login />} />
 
-        {/* Home page route (user) */}
+        {/* Home → after login */}
         <Route
           path="/home"
           element={
-            <ProtectedRoute role="user">
+            <ProtectedRoute>
               <HomePage />
             </ProtectedRoute>
           }
@@ -61,7 +50,7 @@ export default function App() {
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/refund-policy" element={<RefundPolicy />} />
 
-        {/* Protected Routes for Users */}
+        {/* User-only routes */}
         <Route
           path="/booking"
           element={
@@ -87,7 +76,7 @@ export default function App() {
           }
         />
 
-        {/* Protected Route for Admin */}
+        {/* Admin-only */}
         <Route
           path="/admin"
           element={
